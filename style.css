@@ -1,0 +1,135 @@
+body{
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: OffBit;
+  src: url("src/fonts/OffBitTrial-101.otf") format("opentype");
+}
+
+#bg{
+  z-index: -1;
+  position: absolute;
+}
+
+header {
+  width: 100%;
+  display: inline-flex;
+  pointer-events: none;
+}
+
+header canvas {
+  width: 6em !important;
+  height: 6em !important;
+  image-rendering: pixelated;
+}
+
+header #name{
+  font-family: 'OffBit', sans-serif;
+  font-size: clamp(3rem, 25vmin, 7rem);
+  color: black;
+  background-color: white;
+  line-height: 1em;
+  padding-top: .05em;
+  padding-left: .25em;
+  text-align: center;
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .boujee-text {
+    animation: move-bg 8s linear infinite;
+  }
+  @keyframes move-bg {
+    to {
+      background-position: var(--bg-size) 0;
+    }
+  }
+}
+
+#sketch-holder-header{
+  pointer-events: auto;
+}
+
+#sketch-holder-header:hover ~ #name { 
+  --bg-size: 400%;
+  --color-one: hsl(234, 100%, 50%);
+  --color-two: hsl(0, 0%, 0%);
+  background: linear-gradient(
+                90deg,
+                var(--color-one),
+                var(--color-two),
+                var(--color-one)
+              ) 0 0 / var(--bg-size) 100%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: move-bg 8s infinite linear;
+}
+
+
+
+#image{
+  padding-top: 10em; 
+  width: 100%;
+  text-align: center;
+}
+
+#image h1{
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
+  font-size: 2em;
+  line-height: 1em;
+  color: white;
+
+  display: block;
+  width: 85%;
+  text-align: left;
+  margin-left: auto;
+  margin-bottom: .1em;
+}
+
+#image img:hover{
+  animation-name: boxshadowAnim;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+}
+
+#image img{
+  box-shadow:
+    .4em .4em rgba(255,0, 0, 1);
+}
+
+@keyframes boxshadowAnim {
+  from {box-shadow: .8em .8em rgba(255,0, 0, 1);}
+  to {box-shadow: .8em .8em rgba(0,0, 0, 1);}
+}
+
+#image h1 span{
+  background-color: #ed213c;
+  line-height: 1em;
+  padding: .1em;
+}
+
+@keyframes example {
+  from {background-color: #ed213c;}
+  to {background-color: black;}
+}
+
+#image h1 span:hover{
+  animation-name: example;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+
+  line-height: 1em;
+  padding: .1em;
+}
+
+
+#image img{
+  display: block;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
