@@ -44,6 +44,7 @@ const posts = (await getCollection('blog')).sort(
 								<FormattedDate date={post.data.pubDate} />
 								<a href={`/blog/${post.slug}/`}>{post.data.title}</a>
 							</li>
+							<img src={post.data.heroImage}></img>
 						))
 					}
 				</ul>

@@ -25,16 +25,60 @@ h3,
 h4,
 h5,
 h6,
-strong,
+strong {
+
+}
 
 #site-title {
-	font-family: 'Offbit';
+	font-family: 'OffBit', sans-serif;
+	font-size: 3em;
+	background-color: white;
+	display: inline-block;
+	text-decoration: none;
+	padding-left: .4em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.boujee-text {
+	  animation: move-bg 8s linear infinite;
+	}
+	@keyframes move-bg {
+	  to {
+		background-position: var(--bg-size) 0;
+	  }
+	}
+ }
+
+#sketch-holder-header {
+	width: 4em;
+}
+
+a:hover ~ #site-title { 
+	--bg-size: 400%;
+	--color-one: hsl(234, 100%, 50%);
+	--color-two: hsl(0, 0%, 0%);
+	background: linear-gradient(
+				  90deg,
+				  var(--color-one),
+				  var(--color-two),
+				  var(--color-one)
+				) 0 0 / var(--bg-size) 100%;
+	color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+	animation: move-bg 8s infinite linear;
+  }
+
+#sketch-holder-header canvas{
+	height: 2.5em !important;
+	width: 4em !important;
+	transform: skew(10deg, 10deg);
 }
 b {
 	color: #222;
 }
 a {
-	color: #3273dc;
+	color: #0011ff;
 }
 nav a {
 	margin-right: 10px;
