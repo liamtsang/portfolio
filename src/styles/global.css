@@ -7,6 +7,10 @@
     font-family: 'Offbit';
     src: url("/fonts/OffBitTrial-Regular.otf") format("opentype");
 }
+@font-face {
+    font-family: 'Helvetica-Narrow';
+    src: url("/fonts/Helvetica-Narrow-Oblique.otf") format("opentype");
+}
 body {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
 	margin: auto;
@@ -29,6 +33,67 @@ strong {
 
 }
 
+.site-header {
+	display: block;
+	background-color: white;
+}
+
+.site-header-inner{
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+	padding-left: 1em;
+}
+
+.site-header-inner nav{
+	font-family: 'OffBit', sans-serif;
+	font-size: 3em;
+	padding-right: 1em;	
+}
+
+.site-header-inner nav a{
+	color: black;	
+}
+
+@media (min-width: 1200px) {
+	.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    z-index: 9999;
+	}
+	main {
+		margin-top: 5em;
+	}
+	body{
+		max-width: none;
+	}
+	.intro {
+		padding-bottom: 2rem;
+		text-align: left;
+	}
+	#intro-summary {
+		font-family: 'Schibsted Grotesk', sans-serif;
+		font-style: italic;
+		font-size: 3rem;
+		font-weight: 400;
+		/* padding-top: clamp(6rem,30vh,12rem); */
+		padding-right: 2.5rem;
+    	padding-left: 5rem;
+		letter-spacing: .01em;
+    	line-height: 1.25;
+	}
+}
+
 #site-title {
 	font-family: 'OffBit', sans-serif;
 	font-size: 3em;
@@ -49,8 +114,27 @@ strong {
 	}
  }
 
+.blog{
+	padding-right: 5rem;
+    padding-left: 5rem;
+}
+
+.blog-header {
+	border-top: solid 2px #d3d4db;
+	font-family: 'Helvetica-Narrow';
+	font-size: 3rem;
+	font-weight: 600;
+	letter-spacing: .01em;
+    line-height: 1.25;
+}
+
+/* P5 */
 #sketch-holder-header {
-	width: 4em;
+}
+
+#sketch-holder-body canvas{
+	padding-top: 5em;
+	width: 100% !important;
 }
 
 a:hover ~ #site-title { 
@@ -78,7 +162,7 @@ b {
 	color: #222;
 }
 a {
-	color: #0011ff;
+
 }
 nav a {
 	margin-right: 10px;

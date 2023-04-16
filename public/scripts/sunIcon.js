@@ -169,9 +169,11 @@ let gameOfLifeSketch = function(s) {
 }
 
 let c = {
-	"height": window.innerHeight/1.5,
-	"width": window.innerWidth/1.5,
+	"height": window.innerHeight / 1.5,
+	"width": window.innerWidth / 1.5,
 }
+
+console.log(c);
 
 let dotGridSketch = function(s) {
 
@@ -270,7 +272,7 @@ let caSketch = function(s) {
 	var ca;
 
 	s.setup = function() {
-		cnv = s.createCanvas(640, 320);
+		cnv = s.createCanvas(c.width, c.height);
 		cnv.parent('sketch-holder-body')
 		ca = new CA();
 		cnv.mouseClicked(s.clicked);
@@ -292,7 +294,9 @@ let caSketch = function(s) {
 	
 	this.w = 5;
 	// An array of 0s and 1s
-	this.cells = new Array(s.width/this.w);
+	this.a = 2 * Math.round(s.width/this.w/2);
+
+	this.cells = new Array(this.a);
 	for (var i = 0; i < this.cells.length; i++) {
 		this.cells[i] = 0;
 	}
@@ -345,7 +349,8 @@ let caSketch = function(s) {
 	this.display = function() {
 		for (var i = 0; i < this.cells.length; i++) {
 			if (this.cells[i] == 1) {
-				s.fill('black');
+				s.colorMode(s.HSB);
+				s.fill(i,100,100);
 				s.noStroke();
 				s.rect(i*this.w, this.generation*this.w, this.w, this.w);
 			}        
