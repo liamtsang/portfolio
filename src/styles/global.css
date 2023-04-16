@@ -70,6 +70,7 @@ strong {
     padding-top: 0;
     padding-bottom: 0;
     z-index: 9999;
+	
 	}
 	main {
 		margin-top: 5em;
@@ -132,9 +133,14 @@ strong {
 #sketch-holder-header {
 }
 
+#sketch-holder-body{
+	text-align: center;
+}
+
 #sketch-holder-body canvas{
-	padding-top: 5em;
-	width: 100% !important;
+	padding-top: 4em;
+	margin: auto;
+	width: 92% !important;
 }
 
 a:hover ~ #site-title { 

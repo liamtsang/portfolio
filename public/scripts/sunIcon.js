@@ -346,11 +346,13 @@ let caSketch = function(s) {
 		this.generation++;
 	};
 
+	this.c1 = s.color("black")
+	this.c2 = s.color("blue")
+
 	this.display = function() {
 		for (var i = 0; i < this.cells.length; i++) {
 			if (this.cells[i] == 1) {
-				s.colorMode(s.HSB);
-				s.fill(i,100,100);
+				s.fill(s.lerpColor(this.c2, this.c1, this.generation/100));
 				s.noStroke();
 				s.rect(i*this.w, this.generation*this.w, this.w, this.w);
 			}        
