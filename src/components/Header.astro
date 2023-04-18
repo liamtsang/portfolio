@@ -7,14 +7,13 @@ import SunP5 from './SunP5.astro';
 <header class="site-header">
 	<div class="site-header-inner">
 	<div style="display: block">
-		<a href="/" style="display: inline-block">
+		<a href="/" class="site-header-inner">
 			<div id="sketch-holder-header"></div>
+			<h2 id="site-title">
+				{SITE_TITLE}
+			</h2>
 		</a>
 		<SunP5 />
-
-		<h2 id="site-title">
-			{SITE_TITLE}
-		</h2>
 	</div>
 	<nav>
 		<HeaderLink href="/blog">BLOG</HeaderLink>

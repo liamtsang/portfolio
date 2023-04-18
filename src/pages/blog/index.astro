@@ -2,6 +2,7 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { Image, Picture } from '@astrojs/image/components';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
@@ -16,9 +17,26 @@ const posts = (await getCollection('blog')).sort(
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
+			section{
+			}
 			ul {
-				list-style-type: none;
+				list-style: none;
 				padding: unset;
+				display: grid;
+				column-gap: 1.5rem;
+    			row-gap: 1.5rem;
+    			text-align: center;
+				grid-template-columns: 1fr;
+			}
+			@media (min-width: 500px) {
+				ul{
+					grid-template-columns: 1fr 1fr;
+				}
+			}
+			@media (min-width: 1200px) {
+				ul{
+					grid-template-columns: 1fr 1fr 1fr;
+				}
 			}
 			ul li {
 				display: flex;
@@ -31,6 +49,10 @@ const posts = (await getCollection('blog')).sort(
 			ul li a:visited {
 				color: #8e32dc;
 			}
+			h3{
+				margin-top: .1em;
+				text-align: left;
+			}
 		</style>
 	</head>
 	<body>
@@ -41,10 +63,11 @@ const posts = (await getCollection('blog')).sort(
 					{
 						posts.map((post) => (
 							<li>
-								<FormattedDate date={post.data.pubDate} />
-								<a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+								<a href={`/blog/${post.slug}/`}>
+									<Picture src={post.data.heroImage} widths={[100,400,800]} aspectRatio="16:9" />
+									<h3>{post.data.title}</h3>
+								</a>							
 							</li>
-							<img src={post.data.heroImage}></img>
 						))
 					}
 				</ul>

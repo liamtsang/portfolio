@@ -15,8 +15,13 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
+<style>
+	p{
+		max-width: 70ch;
+	}
+</style>
 <BlogPost {...post.data}>
-	<h1>{post.data.title}</h1>
+	
 	<Content />
 </BlogPost>
 

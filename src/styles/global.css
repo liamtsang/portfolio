@@ -3,26 +3,34 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
+ *{
+	box-sizing: border-box;
+ }
 @font-face {
     font-family: 'Offbit';
     src: url("/fonts/OffBitTrial-Regular.otf") format("opentype");
 }
-@font-face {
-    font-family: 'Helvetica-Narrow';
-    src: url("/fonts/Helvetica-Narrow-Oblique.otf") format("opentype");
-}
+
 body {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
+	font-family: 'Work Sans', sans-serif;
 	margin: auto;
 	padding: 20px;
+	margin-top: 3em;
 	max-width: 65ch;
 	text-align: left;
 	background-color: #fff;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	line-height: 1.5;
-	color: #444;
+	letter-spacing: .01em;
+	line-height: 1.25;
+	color: #111;
 }
+
+main{
+	display: block;
+    width: 100%;
+}
+
 h1,
 h2,
 h3,
@@ -56,6 +64,67 @@ strong {
 
 .site-header-inner nav a{
 	color: black;	
+}
+
+#site-title {
+	font-family: 'OffBit', sans-serif;
+	font-size: 3em;
+	background-color: white;
+	display: inline-block;
+	text-decoration: none;
+	padding-left: .4em;
+}
+a:hover > #site-title { 
+	--bg-size: 400%;
+	--color-one: hsl(234, 100%, 50%);
+	--color-two: hsl(0, 0%, 0%);
+	background: linear-gradient(
+				  90deg,
+				  var(--color-one),
+				  var(--color-two),
+				  var(--color-one)
+				) 0 0 / var(--bg-size) 100%;
+	color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+	animation: move-bg 8s infinite linear;
+  }
+/* Site Title Animation */
+@media (prefers-reduced-motion: no-preference) {
+	.boujee-text {
+	  animation: move-bg 8s linear infinite;
+	}
+	@keyframes move-bg {
+	  to {
+		background-position: var(--bg-size) 0;
+	  }
+	}
+ }
+
+.blog{
+	padding-right: 2.5rem;
+    padding-left: 2.5rem;
+}
+
+#intro-summary {
+	font-family: 'Work Sans', sans-serif;
+	font-style: italic;
+	font-size: 2rem;
+	font-weight: 400;
+	/* padding-top: clamp(6rem,30vh,12rem); */
+	padding-right: 2.5rem;
+	padding-left: 2.5rem;
+	letter-spacing: .01em;
+	line-height: 1.25;
+}
+
+.blog-header {
+	border-top: solid 2px #d3d4db;
+	font-family: 'Work Sans';
+	font-size: 2rem;
+	font-weight: 600;
+	letter-spacing: .01em;
+    line-height: 1.25;
 }
 
 @media (min-width: 1200px) {
@@ -93,40 +162,18 @@ strong {
 		letter-spacing: .01em;
     	line-height: 1.25;
 	}
-}
-
-#site-title {
-	font-family: 'OffBit', sans-serif;
-	font-size: 3em;
-	background-color: white;
-	display: inline-block;
-	text-decoration: none;
-	padding-left: .4em;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-	.boujee-text {
-	  animation: move-bg 8s linear infinite;
+	.blog{
+		padding-right: 5rem;
+		padding-left: 5rem;
 	}
-	@keyframes move-bg {
-	  to {
-		background-position: var(--bg-size) 0;
-	  }
+	.blog-header {
+		border-top: solid 2px #d3d4db;
+		font-family: 'Helvetica-Narrow';
+		font-size: 3rem;
+		font-weight: 600;
+		letter-spacing: .01em;
+		line-height: 1.25;
 	}
- }
-
-.blog{
-	padding-right: 5rem;
-    padding-left: 5rem;
-}
-
-.blog-header {
-	border-top: solid 2px #d3d4db;
-	font-family: 'Helvetica-Narrow';
-	font-size: 3rem;
-	font-weight: 600;
-	letter-spacing: .01em;
-    line-height: 1.25;
 }
 
 /* P5 */
@@ -138,37 +185,25 @@ strong {
 }
 
 #sketch-holder-body canvas{
-	padding-top: 4em;
+	padding-top: 1em;
 	margin: auto;
 	width: 92% !important;
 }
-
-a:hover ~ #site-title { 
-	--bg-size: 400%;
-	--color-one: hsl(234, 100%, 50%);
-	--color-two: hsl(0, 0%, 0%);
-	background: linear-gradient(
-				  90deg,
-				  var(--color-one),
-				  var(--color-two),
-				  var(--color-one)
-				) 0 0 / var(--bg-size) 100%;
-	color: transparent;
-	-webkit-background-clip: text;
-	background-clip: text;
-	animation: move-bg 8s infinite linear;
-  }
 
 #sketch-holder-header canvas{
 	height: 2.5em !important;
 	width: 4em !important;
 	transform: skew(10deg, 10deg);
 }
+
+/* Basic */
 b {
 	color: #222;
 }
 a {
-
+	background-color: white;
+	color: black;
+	text-decoration: none;
 }
 nav a {
 	margin-right: 10px;
@@ -186,7 +221,7 @@ content {
 table {
 	width: 100%;
 }
-img {
+img{
 	max-width: 100%;
 	height: auto;
 }
