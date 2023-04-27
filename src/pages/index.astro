@@ -5,12 +5,55 @@ import Footer from '../components/Footer.astro';
 import HomeP5 from '../components/HomeP5.astro';
 import { Image, Picture } from '@astrojs/image/components';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			section{
+			}
+			ul {
+				list-style: none;
+				padding: unset;
+				display: grid;
+				column-gap: 1.5rem;
+    			row-gap: 1.5rem;
+    			text-align: center;
+				grid-template-columns: 1fr;
+			}
+			@media (min-width: 500px) {
+				ul{
+					grid-template-columns: 1fr 1fr;
+				}
+			}
+			@media (min-width: 1200px) {
+				ul{
+					grid-template-columns: 1fr 1fr 1fr;
+				}
+			}
+			ul li {
+				display: flex;
+			}
+			ul li :global(time) {
+				flex: 0 0 130px;
+				font-style: italic;
+				color: #595959;
+			}
+			ul li a:visited {
+				color: #8e32dc;
+			}
+			h3{
+				margin-top: .1em;
+				text-align: left;
+			}
+		</style>
 	</head>
 	<body>
 		<Header title={SITE_TITLE} />
@@ -26,6 +69,20 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				<header class="blog-header">
 					<p>Works</p>
 				</header>
+				<section>
+					<ul>
+						{
+							posts.map((post) => (
+								<li>
+									<a href={`/blog/${post.slug}/`}>
+										<Picture src={post.data.heroImage} widths={[100,400,800]} aspectRatio="16:9" />
+										<h3>{post.data.title}</h3>
+									</a>							
+								</li>
+							))
+						}
+					</ul>
+				</section>
 			</section>
 		</main>
 		<Footer />

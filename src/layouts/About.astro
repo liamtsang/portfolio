@@ -22,12 +22,27 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				font-size: 2em;
 				margin: 0.25em 0 0;
 			}
+			.description {
+				color: blue;
+				margin-top: .25em;
+				font-weight: 300;
+			}
+			.contact {
+				font-weight: 300;
+				margin-bottom: 0.25em;
+			}
 			hr {
-				border-top: 1px solid #ddd;
+				border-top: 1px solid #222;
 				margin: 1rem 0;
 			}
 			.last-updated-on {
 				font-style: italic;
+			}
+			a {
+				color: black;
+				text-decoration: underline;
+				text-decoration-color: blue;
+				text-decoration-thickness: 2px;
 			}
 		</style>
 	</head>
@@ -39,6 +54,10 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
 				<h2 class="title">{title}</h2>
 				<h2 class="description">{description}</h2>
+				<h2 class="contact">Contact</h2>
+				<span>📫 </span><a href="mailto: liamtsang@gmail.com">liamtsang@gmail.com</a>
+				<br>
+				<span>💻 </span><a href="https://github.com/liamtsang">Github</a>
 				<hr />
 				<slot />
 			</article>

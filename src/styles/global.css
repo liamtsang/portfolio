@@ -13,6 +13,7 @@
 
 body {
 	font-family: 'Work Sans', sans-serif;
+	font-size: 1.25em;
 	margin: auto;
 	padding: 20px;
 	margin-top: 3em;
@@ -120,7 +121,7 @@ a:hover > #site-title {
 
 .blog-header {
 	border-top: solid 2px #d3d4db;
-	font-family: 'Work Sans';
+	font-family: 'Work Sans', sans-serif;
 	font-size: 2rem;
 	font-weight: 600;
 	letter-spacing: .01em;
@@ -168,7 +169,7 @@ a:hover > #site-title {
 	}
 	.blog-header {
 		border-top: solid 2px #d3d4db;
-		font-family: 'Helvetica-Narrow';
+		font-family: 'Work Sans', sans-serif;
 		font-size: 3rem;
 		font-weight: 600;
 		letter-spacing: .01em;
