@@ -11,4 +11,6 @@ Graphic design and web development for the startup ChurnZero. This was an intern
 
 # HTML5 Ad
 
+This was a HTML5 ad that was ran on Google Ads. The goal was to create a simple, eye-catching ad that would use the HTML5 capability to have clickable buttons.
+
 ![ChurnZero Google Ad](/images/churnzero/cz-ad.gif)
